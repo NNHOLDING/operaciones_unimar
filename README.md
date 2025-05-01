@@ -1,3 +1,175 @@
-# operaciones_unimar
-Smart Intelligence Tools
-Todos los derechos reservados, NN HOLDING SOLUTIONS
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Unimar</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #e0f2f7; /* Azul suave */
+        }
+
+        .header {
+            background-color: #3498db; /* Azul más moderno */
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+            font-size: 1.5em; /* Aumentar un poco el tamaño del título principal */
+            margin-bottom: 5px; /* Añadir un pequeño margen debajo del título principal */
+            margin-top: 0;
+        }
+
+        .header h2 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+            font-size: 1em; /* Tamaño del subtítulo */
+            color: #eee; /* Color del subtítulo, un gris claro */
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .card {
+            background-color: rgba(204, 204, 204, 0.2); /* Color platino con 20% de opacidad */
+            padding: 15px;
+            margin: 15px auto;
+            border-radius: 3px;
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: calc(100% - 28mm);
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 2px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 8px);
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-size: 0.9em;
+        }
+
+        .form-group input[type="text"][readonly] {
+            background-color: #eee;
+            color: #777;
+            cursor: not-allowed;
+        }
+
+        button[type="submit"] {
+            background-color: #2ecc71; /* Verde para el botón */
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+
+        .footer {
+            background-color: #3498db;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.75em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Operaciones Unimar</h1>
+        <h2>Smart Intelligence Tools</h2>
+    </div>
+
+    <div class="card">
+        <form id="registroForm">
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input type="text" id="hora" name="hora" readonly>
+            </div>
+            <div class="form-group">
+                <label for="bahia">Bahía:</label>
+                <input type="text" id="bahia" name="bahia" value="07" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tarimas_verdes">Cantidad Tarimas Verdes:</label>
+                <input type="number" id="tarimas_verdes" name="tarimas_verdes" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label for="carretilla">Carretilla:</label>
+                <input type="text" id="carretilla" name="carretilla">
+            </div>
+            <div class="form-group">
+                <label for="estañones">Estañones:</label>
+                <input type="number" id="estañones" name="estañones" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label for="tarimas_blancas">Cantidad Tarimas Blancas:</label>
+                <input type="number" id="tarimas_blancas" name="tarimas_blancas" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label for="tarimas_rojas">Cantidad Tarimas Rojas:</label>
+                <input type="number" id="tarimas_rojas" name="tarimas_rojas" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" name="placa">
+            </div>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>NN HOLDING SOLUTIONS &copy; 2025</p>
+    </div>
+
+    <script>
+        const horaInput = document.getElementById('hora');
+
+        function actualizarHora() {
+            const ahora = new Date();
+            const hora = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            horaInput.value = `${hora}:${minutos}`;
+            console.log("Función actualizarHora ejecutada (al final):", horaInput.value);
+        }
+
+        actualizarHora(); // Mostrar la hora inicial
+        setInterval(actualizarHora, 60000); // Actualizar cada minuto
+    </script>
+</body>
+</html>
